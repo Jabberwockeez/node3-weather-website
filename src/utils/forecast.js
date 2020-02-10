@@ -12,7 +12,7 @@ const forecast = (loc, callback) => {
         } else {
             const { currently, daily } = body
             const { temperature, precipProbability } = currently
-            callback(undefined, format('{} It is currently {} degress out. There is a {}% chance of rain.', daily.data[0].summary, temperature, precipProbability * 100))
+            callback(undefined, format("{} It is currently {} degress out. The high today is {}. The low today is {}. There is a {}% chance of rain.", daily.data[0].summary, temperature, daily.data[0].temperatureHigh, daily.data[0].temperatureLow, precipProbability * 100))
         }
     })
 }
